@@ -1,0 +1,34 @@
+env:
+  TERM: alacritty
+
+window:
+  padding:
+    x: 10
+    y: 10
+  opacity: 1.0
+
+scrolling:
+  history: 99999
+
+font:
+  normal:
+    family: JetBrainsMono Nerd Font
+    style: Regular
+  bold:
+    family: JetBrainsMono Nerd Font
+    style: Bold
+  italic:
+    family: JetBrainsMono Nerd Font
+    style: Italic
+  bold_italic:
+    family: JetBrainsMono Nerd Font
+    style: Bold Italic
+  size: 10.0
+
+cursor:
+  style:
+      shape: Beam
+  vi_mode_style: Block
+
+import:
+  - ~/.config/alacritty/nord-darker.yml
