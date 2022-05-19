@@ -420,6 +420,9 @@ exec_always --no-startup-id autotiling
 #exec --no-startup-id sleep 7 && firefox https://github.com/endeavouros-team/endeavouros-i3wm-setup/blob/main/force-knowledge.md
 #exec --no-startup-id sleep 3 && thunar
 
+# Disable 'Power' key
+exec systemd-inhibit --what=handle-power-key --who=xmodmap_switch --why=hhkb --mode=block sleep infinity &
+
 ###############
 # system tray #
 ###############
@@ -543,4 +546,4 @@ for_window [class="scratchpad"] move scratchpad
 
 exec --no-startup-id $term --class scratchpad,scratchpad 
 
-bindsym $mod+shift+x [class="scratchpad"] scratchpad show
+bindsym $mod+Shift+x [class="scratchpad"] scratchpad show
