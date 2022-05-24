@@ -52,11 +52,12 @@ workspace_layout default
 new_window pixel 1
 
 # thin borders
-# hide_edge_borders both
+hide_edge_borders smart
 
 # Set inner/outer gaps
 gaps inner 6
 gaps outer 3
+smart_gaps on
 
 # show window title bars (not officially supported with i3gaps)
 #default_border normal
@@ -70,6 +71,9 @@ floating_modifier $mod
 # switch/iterate between workspaces
 bindsym $mod+Tab workspace next
 bindsym $mod+Shift+Tab workspace prev
+
+# Move the current workspace to the next output
+bindsym $mod+Shift+m move workspace to output next
 
 # switch to workspace
 bindsym $mod+1    workspace  $ws1
@@ -258,11 +262,16 @@ set $ws10 "10"
 # use workspaces on different displays:
 # where you have to replace VGA-0/HDMI-0 with the names for your displays
 # you can get from xrandr command
-#workspace $ws1 output VGA-0
-#workspace $ws2 output VGA-0
-#workspace $ws3 output HDMI-0
-#workspace $ws4 output HDMI-0
-#workspace $ws5 output HDMI-0
+#workspace $ws1 output DP-4
+#workspace $ws2 output DP-4
+#workspace $ws3 output DP-4
+#workspace $ws4 output DP-4
+#workspace $ws5 output DP-4
+#workspace $ws6 output DP-4
+#workspace $ws7 output HDMI-0
+#workspace $ws8 output HDMI-0
+#workspace $ws9 output HDMI-0
+#workspace $ws10 output HDMI-0
 
 # bind program to workspace and focus to them on startup:
 assign [class="Alacritty"] $ws1
@@ -490,11 +499,7 @@ bindsym $mod+t exec rofi -show window \
 
 set $term alacritty
 
-for_window [class="scratchpad"] floating enable
-for_window [class="scratchpad"] resize set 1152 864
-for_window [class="scratchpad"] move position center
-for_window [class="scratchpad"] border pixel 2
-for_window [class="scratchpad"] move scratchpad
+for_window [class="scratchpad"] floating enable, resize set 1152 864, move position center, border pixel 2, move scratchpad
 
 exec --no-startup-id $term --class scratchpad,scratchpad 
 
